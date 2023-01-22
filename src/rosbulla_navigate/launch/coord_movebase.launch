@@ -1,0 +1,4 @@
+<launch>
+<node pkg="rosbulla_navigate" type="coord_movebase.py" name="coord_movebase" output="screen">
+</node>
+</launch>

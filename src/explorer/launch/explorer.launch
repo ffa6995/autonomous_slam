@@ -1,0 +1,3 @@
+<launch>
+    <node name="explorer" pkg="turtlebot_explorer" type="explorer.py" />
+</launch>

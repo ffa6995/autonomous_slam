@@ -1,0 +1,4 @@
+<launch>
+<node pkg="rosbulla_navigate" type="pixyfinder.py" name="pixyfinder" output="screen">
+</node>
+</launch>

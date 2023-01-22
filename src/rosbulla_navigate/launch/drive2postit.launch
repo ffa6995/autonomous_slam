@@ -1,0 +1,4 @@
+<launch>
+<node pkg="rosbulla_navigate" type="drive2postit.py" name="drive2postit" output="screen">
+</node>
+</launch>
