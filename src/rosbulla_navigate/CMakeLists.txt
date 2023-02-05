@@ -166,6 +166,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
  catkin_install_python(PROGRAMS
    scripts/coord_topic.py
+   scripts/coord_master_logic.py
    scripts/coord_navigater.py
    scripts/coord_movebase.py
    scripts/coord_saver.py

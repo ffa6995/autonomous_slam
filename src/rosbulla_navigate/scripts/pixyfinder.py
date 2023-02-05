@@ -2,6 +2,7 @@
 import rospy
 from rosbulla_navigate.msg import PixyData
 from turtlebot3_msgs.msg import Sound
+from std_msgs.msg import Bool
 import time
 
 def callback(data):
@@ -10,13 +11,15 @@ def callback(data):
         # sound_msg.value = 0
         # pub.publish(sound_msg)
         rospy.loginfo('Found ')
+        foundpublisher2.publish(True)
         # rospy.loginfo(data.blocks)
-        # time.sleep(0.5) # wait for 0.5 seconds
+        rospy.sleep(2)
         # sound_msg.value = 1
         # pub.publish(sound_msg)
 
 rospy.init_node('pixy_sound_node')
 sub = rospy.Subscriber("/my_pixy/block_data", PixyData, callback)
-pub = rospy.Publisher("/sound", Sound, queue_size=10)
+foundpublisher2 = rospy.Publisher("/found", Bool, queue_size=10)
+foundpublisher2.publish(False)
 rospy.spin()
 

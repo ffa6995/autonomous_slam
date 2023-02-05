@@ -15,7 +15,7 @@ client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
 client.wait_for_server()
 
 # Define the goal pose
-goal_pose = Pose(Point(0.24,1.99,0.01), Quaternion(0.0, 0.0, 0.0, 1.0))
+goal_pose = Pose(Point(0.24,5.99,2.01), Quaternion(0.0, 0.0, 0.0, 1.0))
 # goal_pose = Pose(Point(-1.88,-0.05,0.01), Quaternion(0.0, 0.0, 0.0, 1.0))
 
 # Create a goal message

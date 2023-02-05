@@ -1,4 +1,5 @@
 <launch>
 <node pkg="rosbulla_navigate" type="coord_loaderandmover.py" name="coord_loaderandmover" output="screen">
+
 </node>
 </launch>

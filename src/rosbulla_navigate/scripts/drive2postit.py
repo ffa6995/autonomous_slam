@@ -16,7 +16,6 @@ class RedPostItFinder:
         rospy.loginfo("RedPostItFinder started")
 
     def callback(self, data):
-        rospy.loginfo("Callback started")
         try:
             cv_image = self.bridge.compressed_imgmsg_to_cv2(data, "bgr8")
         except CvBridgeError as e:
@@ -41,9 +40,9 @@ class RedPostItFinder:
                 goal.pose.position.x = cX/295
                 goal.pose.position.y = 0
                 goal.pose.orientation.w = 1
-                # rospy.loginfo(goal.pose)
+                rospy.loginfo(goal.pose)
                 if self.plansend == False:
-                    self.move_base_pub.publish(goal)
+                    #self.move_base_pub.publish(goal)
                     self.plansend = True
 
         # cv2.imshow("Image window", res)
@@ -51,16 +50,15 @@ class RedPostItFinder:
 
     def getmask(self, bgr_image):
         hsv = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
-        token_color_lower_1 = np.array([0, 50, 100]) 
-        token_color_upper_1 = np.array([15, 255, 255])
-        token_color_lower_2 = np.array([165, 50, 100])
-        token_color_upper_2 = np.array([180, 255, 255])
+        token_color_lower_1 = np.array([138, 33, 101]) 
+        token_color_upper_1 = np.array([179, 130, 255])
+        token_color_lower_2 = np.array([138, 33, 101]) 
+        token_color_upper_2 = np.array([179, 130, 255])
         mask1 = cv2.inRange(hsv, token_color_lower_1, token_color_upper_1)
         mask2 = cv2.inRange(hsv, token_color_lower_2, token_color_upper_2)
         mask = np.zeros(mask1.shape)
         mask = cv2.bitwise_or(mask1, mask2, mask)
         return mask
-
 
 if __name__ == '__main__':
     rospy.init_node('drive2postit', anonymous=True)
