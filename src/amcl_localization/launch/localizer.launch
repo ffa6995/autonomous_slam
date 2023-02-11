@@ -1,0 +1,5 @@
+<launch>
+    <!--<include file="$(find amcl_localization)/launch/custom_navigation.launch"/>-->
+    
+    <node name="localize" pkg="amcl_localization" type="localize_wall.py" output="screen"/>
+</launch>
