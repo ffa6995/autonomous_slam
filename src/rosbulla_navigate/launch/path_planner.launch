@@ -1,0 +1,5 @@
+<launch>
+<node pkg="rosbulla_navigate" type="path_planner.py" name="path_planner" output="screen">
+
+</node>
+</launch>
